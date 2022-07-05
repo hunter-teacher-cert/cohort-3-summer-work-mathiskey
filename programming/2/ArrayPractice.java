@@ -227,7 +227,12 @@ public class ArrayPractice
   */
   public static void flip( int[] data )
   {
-    /* YOUR BRILLIANT CODE HERE */
+    int[] newArray = new int[data.length];
+
+    for(int i=0; i < data.length; i++){
+      newArray[i] = data[data.length - 1 - i];
+    }
+    System.out.println(Arrays.toString(newArray));
   }
 
 
