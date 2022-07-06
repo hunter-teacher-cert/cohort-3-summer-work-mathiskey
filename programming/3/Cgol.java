@@ -79,12 +79,8 @@ public class Cgol
             if (board[i][j] == 'X') {
               count ++;
             } 
-            if (board[r][c] == 'X'){
-              count -1;
-            }
         }   
       }
-    }
     }
     return count;
   }
@@ -97,34 +93,67 @@ public class Cgol
      postcond: return next generation cell state based on CGOL rules
      (alive 'X', dead '-')
   */
+  
   //check the conditions for live/dead
+  //a live cell with fewer than 2 live neighbors dies, as if by underpopulation
+  //a live cell with more than 3 live neighbors dies, as if by overpopulation
+  //a dead cell with exactly 3 live neighbors becomes a live cell, as if by reproduction
   public static char getNextGenCell( char[][] board,int r, int c ) //5
   {
-    int numLive = countNeigh
+    int numAlive = countNeighbours(board, r, c);
+    if (board[r][c] == 'X' && (numAlive < 2 || numAlive > 3)){
+      return '-';
+    } else if (board[r][c] == '-' && numAlive == 3){
+      return 'X';    
+    }
+    return board[r][c];
   }
 
 
   //generate and return a new board representing next generation
-  // public static char[][] generateNextBoard( char[][] board ) //6
-  // {
+  public static char[][] generateNextBoard( char[][] board ) //6
+  {
+    //create a new variable to hold a new temporary board
+    //iterate through the entire original board and run the getNextGenCell() on it and store the result in the new temporary board
+    //return the new temporary board
+    char[][] tempBoard = createNewBoard(board.length, board[0].length);   
+    for(int i = 0; i < board.length; i++){
+      for(int j = 0; j < board[0].length; j++){
+        tempBoard[i][j] = getNextGenCell(board,i,j);
+      }
+    }
+    return tempBoard;
+  }
 
-  // }
 
-
-  public static void main( String[] args )
+  public static void    main( String[] args )
   {
     
     char[][] board;
-    board = createNewBoard(5,5);
-
+    board = createNewBoard(10,10);
+    int gen = 1;
     //breathe life into some cells:
-    setCell(board, 0, 0, 'X');
-    setCell(board, 0, 1, 'X');
-    setCell(board, 1, 0, 'X');
-    System.out.println("Gen X:");
+    setCell(board, 1, 1, 'X');
+    setCell(board, 2, 1, 'X');
+    setCell(board, 3, 1, 'X');
+    System.out.println("Gen " + gen + ":");
     printBoard(board);
     System.out.println("--------------------------\n\n");
     System.out.println(countNeighbours(board,0,0));
+    
+    board = generateNextBoard(board);
+    
+    gen ++;
+    System.out.println("Gen " + gen + ":");
+    printBoard(board);
+    System.out.println("--------------------------\n\n");
+    
+    board = generateNextBoard(board);
+
+    gen ++;
+    System.out.println("Gen " + gen + ":");
+    printBoard(board);
+    System.out.println("--------------------------\n\n");
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     // TASK:
     // Once your initial version is running,
