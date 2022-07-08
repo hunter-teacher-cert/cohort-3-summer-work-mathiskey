@@ -3,8 +3,7 @@ import java.util.*;
 
 /**
  * Conway's Game of Life by Team AreWeSentientYet?
- * Jihae Park
- * collaborators: Seth Adams, Shana Elizabeth Henry, Marisa Shuman
+ * Group: Jihae Park, Seth Adams, Shana Elizabeth Henry, Marisa Shuman
  */
 
 /**
