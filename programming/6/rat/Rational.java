@@ -77,10 +77,7 @@ public class Rational
   // uses the most precise floating point primitive
   public double floatValue()
   {
-    //show all possible digits
-    double result = (_numerator/1.0) / (_denominator);     
-    
-    return result;
+    return (double) this._numerator / this._denominator;
   }
     
 
