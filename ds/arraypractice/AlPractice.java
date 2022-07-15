@@ -35,15 +35,16 @@ public class AlPractice{
   - A new ArrayList of Integers with each value being a random
     number between 0 and maxval (not including maxval).
   */
+  //Notes of <Integer>:  The Integer class wraps a value of the primitive type int in an object. An object of type Integer contains a single field whose type is int.
   public static ArrayList<Integer> buildRandomList(int size, int maxval)
   {
     ArrayList<Integer> buildArray = new ArrayList <Integer>();
     Random rand = new Random();//Random object is a random number generator
-    for (int i = 0; i<size;i++)
+    for (int i = 0; i<size;i++)// i is the value, size # of times, i increments by 1
     {
-      buildArray.add(rand.nextInt(maxval));//() happens first with a random number generated and then added to the arraylist
+      buildArray.add(rand.nextInt(maxval));//() happens first with a random number generated and then added to the arraylist ....// Generate a random # including 0 and up to but not including maxval.  // add that random integer to buildArray.
     }
-    return buildArray;//placeholder to compile.
+    return buildArray;//placeholder to compile. This is needed bc in the method we named ArrayList (an object) as being return
   }
 
   /**
