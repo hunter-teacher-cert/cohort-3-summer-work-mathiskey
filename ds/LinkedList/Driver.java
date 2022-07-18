@@ -19,5 +19,12 @@ public class Driver{
     System.out.println("The index of Kate is: " +l.indexOf("Kate"));
     System.out.println("This index is not in LinkedList: " +l.indexOf("Mike"));
 
+
+     String[] a = l.toArray();
+    for(int i = 0; i < a.length; i++) {
+      System.out.println("a[" + i +"]: " +a[i]);
+    }
+    
+
   }
 }

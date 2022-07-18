@@ -1,7 +1,7 @@
 import java.io.*;
 import java.util.*;
 
-/* Collaborators:
+/* Collaborators (room 14):
 * Shana Elizabeth Henry, Christoper de Silva, Ashley Ufret, Kate Maschmeyer
 *
 */
@@ -186,7 +186,15 @@ public class LinkedList{
 
   */
   public String[] toArray(){
-    return null;
+    String[] arr = new String[size()];
+    Node walker = head;
+    
+    for (int i=0; i<arr.length; i++)
+    {
+    arr[i] = walker.getData();
+    walker = walker.getNext();
+    }
+    return arr;
   }
 
 
