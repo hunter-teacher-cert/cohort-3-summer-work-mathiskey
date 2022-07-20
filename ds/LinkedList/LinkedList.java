@@ -33,10 +33,12 @@ remove(int index);
 
 public class LinkedList{
 
-  private Node head;
+  private Node head; //instance variable (it is an object - type)
+  //say: a private instance variable of type Node called head
 
-  public LinkedList(){
-    head = null;
+  public LinkedList()//constructor (is a special type of method) & every constructor is called when you use 'new' & constructors will always have the same name as the class
+  {
+    head = null; // say: LinkedList constructor that takes in no parameters and sets head equal to null.
   }
 
   /**
