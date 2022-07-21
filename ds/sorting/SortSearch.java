@@ -16,7 +16,6 @@ Part 1:  (BASIC)
 Search Project:
   1. Complete the linear search (BASIC)
   2. Complete the binary search (Intermediate)
-  3. Complete the recursive version of binary search (Advanced)
 */
 
 public class SortSearch{
@@ -113,52 +112,51 @@ public class SortSearch{
        This algorithm works on any ArrayList.
     */
     public int linearSearch(int value){
-	
-	
-	return 0; // replace this return
+	  
+	  for (int i = 0; i < data.size(); i++)
+    {
+      if (data.get(i) == value)
+      {
+        return i;
+      }
     }
+    return -1;
+  }
     
     /**
        Implement a binary search as specified by the comments
        
        This algorithm only works on sorted ArrayLists.
     */
-    public int binarySearch(int value){
-
-	// create assign variables  representing the high, low and middle indices 
+   public int binarySearch(int value){
+      // check that data is sorted.  If not, sort it first
+      //this.builtinSort();
+        
+  	  // create assign variables  representing the high, low and middle indices
+      int low = 0;
+      int high = this.data.size()-1; 
+      int mid = (low + high)/2;
+      
 	// while we're not done:
 	//   if the item is at data.get(middle), return middle
 	//   otherwise, update high, low, and middle
+      while(high >= low) { 
 
-	return 0;
-	    
+        if(value == this.get(mid)) {
+          return mid;
+        } else if(value > this.get(mid)) { // check top half
+          low = mid + 1;
+          mid = (low + high) / 2;
+          // high remains the same
+        } else { // value < this.get(mid) <-- check bottom half
+          // low remains the same 
+          high = mid;
+          mid = (low + high) / 2;
+          
+        } 
+      
+      }
+      System.out.println("Value, " + value + ", not found.");
+	    return -1;  // if not found
     }
-    
-    /**
-       Implement a RECURSIVE binary search as specified by the comments
-       
-       This algorithm only works on sorted ArrayLists.
-    */
-
-    public int binarySearchRecursive(int value, int lowIndex, int highIndex){
-
-	// refer to class discussion
-	
-	return 0;
-	    
-    }
-    
-	
-    public String toString(){
-	return ""+data;
-    };
-
-
-    public void builtinSort(){
-	Collections.sort(data);
-	
-    }
-    
-
-    
 }
