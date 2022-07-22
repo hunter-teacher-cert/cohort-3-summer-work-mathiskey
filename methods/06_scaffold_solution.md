@@ -20,6 +20,7 @@ a) Students are given 5-6 Scratch blocks that are out of order and they need to 
 ![repeat](repeat.png)
 
 b) Students will select several scratch blocks that will demonstrate a loop in the story (Intermediate)
+
 ![change-size-by](change-size-by.png)
 ![start-sound@4x](start-sound@4x.png)
 ![say](say.png)

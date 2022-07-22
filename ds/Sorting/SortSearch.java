@@ -111,7 +111,8 @@ public class SortSearch{
        until either the element is found or you've looked at all the elements.
        This algorithm works on any ArrayList.
     */
-    public int linearSearch(int value){
+    }
+      public int linearSearch(int value){
 	  
 	  for (int i = 0; i < data.size(); i++)
     {
@@ -129,34 +130,27 @@ public class SortSearch{
        This algorithm only works on sorted ArrayLists.
     */
    public int binarySearch(int value){
-      // check that data is sorted.  If not, sort it first
-      //this.builtinSort();
-        
-  	  // create assign variables  representing the high, low and middle indices
       int low = 0;
-      int high = this.data.size()-1; 
-      int mid = (low + high)/2;
+      int high = data.size() -1;
+      int middle = (high + low) /2;
       
 	// while we're not done:
-	//   if the item is at data.get(middle), return middle
-	//   otherwise, update high, low, and middle
-      while(high >= low) { 
-
-        if(value == this.get(mid)) {
-          return mid;
-        } else if(value > this.get(mid)) { // check top half
-          low = mid + 1;
-          mid = (low + high) / 2;
-          // high remains the same
-        } else { // value < this.get(mid) <-- check bottom half
-          // low remains the same 
-          high = mid;
-          mid = (low + high) / 2;
-          
-        } 
-      
+      while (true)
+      {
+        if (data.get(middle) == value)
+        {
+          return middle;
+        }
+        else if (value < data.get(middle)){
+          high = middle-1;
+        }
+        else if (high <= low){
+            return -1;
+        }
+        else {
+          low = middle + 1;
+        }
+        middle = (low + high)/2;
       }
-      System.out.println("Value, " + value + ", not found.");
-	    return -1;  // if not found
     }
 }
