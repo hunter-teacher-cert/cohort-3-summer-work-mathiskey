@@ -32,5 +32,14 @@ public class SortSearchDriver {
   System.out.println("\n" +"This is binary search looking for the index of value 5: " + ss.binarySearch(5));
 
   System.out.println("\n" +"This is binary search looking for the index of value 9: " + ss.binarySearch(9));
-    }
+  ArrayList<Integer> a= ss.buildIncreasingList(20);
+	System.out.println(a);
+
+  ArrayList<Integer> b= ss.buildIncreasingList(20);
+	System.out.println(b);
+
+  ArrayList<Integer> mergedList = ss.merge(a, b);
+  System.out.println("Merged List: " + mergedList);
+  }
+
 }
