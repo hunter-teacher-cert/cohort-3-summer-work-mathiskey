@@ -1,0 +1,72 @@
+Objective - Review the Game of FIM and identify, track and solve the errors.
+
+Teacher Directions
+1 - Leave out a semi-colon (Compile Error)
+2 - Capitalize the m in Main (Compile Error)
+3 - Change Variable type from int to String (Run-Time Error)
+4 - Take out the line where the Scanner is declared (Run-Time Error)
+5 - Change this codition if (stonesTaken >0 && stonesTaken < 4) to if (stonesTaken >0 && stonesTaken > 4) (Logical Error)
+6 - stones -= stonesTaken; change the operator to a + (Logical Error)
+7 - Remove * 3 from Math.random() * 3;
+8 - if (stones == 0) instead of compare == make it equals = (Logical Error)
+
+Student Directions
+1 - Run the code
+2 - In your interactive notebooks - jot down the error code
+3 - Determine type of error
+4 - Use the debugging strategies that have been discussed in this class to correct the error
+5 - Jot down in you INs how the code was corrected.  What stood out to you?  Wha
+
+import java.io.*;
+import java.util.*;
+
+public class Nim 
+{
+  public static void main (String [] arg) 
+  {
+    int stones = 12;
+    int stonesTaken = 0;
+
+    Scanner input = new Scanner(System.in);
+    
+    //loop until game ends
+
+    System.out.println("Let's play Nim!  This version you have 12 stones to begin and the last player to take a stone wins!  You can remove between 1 and 3 stones.");
+    while(stones >0){
+      //prompt user for number of stones they wish to remove each turn
+      System.out.println("How many stones do you wish to remove?");
+      stonesTaken = input.nextInt();
+      input.nextLine();
+      if (stonesTaken >0 && stonesTaken < 4){
+
+        //calculate number of stones left 
+        stones -= stonesTaken;  //stones = stones - stonesTaken
+        
+        // check for a winner
+        if (stones == 0){
+          System.out.println("You won!");
+        }
+        else {
+          System.out.println("Computer's turns.");
+          double randomNum = Math.random() * 3;
+          int roundedNum = (int ) randomNum;
+          roundNum +=1;
+          
+          stones -= roundNum;
+          if (stones == 0){
+            System.out.println("You lost!");
+          }
+        }
+      
+      } 
+      else {
+      System.out.println("Number is invalid. You can remove between 1 and 3 stones." );
+      }
+      //calculate number of stones remaining-print
+      //check for win
+      //machine take a turn
+      //calculate number of stones remaining
+      //check machine win
+    //}
+  }  
+}
