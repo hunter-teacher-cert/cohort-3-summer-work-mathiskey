@@ -224,5 +224,25 @@ public class SortSearch{
       }
       return mergedData;
     }
-    
+
+  public ArrayList<Integer> mergeSort(ArrayList<Integer> list){
+
+      if (list.size() < 2){
+        return list;
+      }
+
+      ArrayList<Integer> left = new ArrayList<Integer>(list.subList(0, list.size()/2));
+      ArrayList<Integer> right = new ArrayList<Integer>(list.subList(list.size()/2, list.size()));
+
+      left = mergeSort(left);
+      right = mergeSort(right);
+      
+      ArrayList<Integer> mergedData = merge(left, right);
+      return mergedData;
+  }
+
+
+    public void msort(){
+        data =  mergeSort(data);
+    }
 }
