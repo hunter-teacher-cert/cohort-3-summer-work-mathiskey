@@ -23,22 +23,35 @@ public class Queue{
 
 	//In this folder, we changed the Node file to hold an integer, rather than a String.
   private Node head;
-
+	
+	public boolean isEmpty(){
+		return head == null;
+	}
   public Queue(){
+
     head = null;
   }
 
 	public void enqueue(int value){
-				Node newItem = new Node(value);
-				Node current = head;
-		
-			
-						while (current != null){
+		//Set up the node	
+		Node newItem = new Node(value);
+//if there is nothing in the queue, add to the front.
+		if (isEmpty()){
+			head = newItem;
+		}else{
+		//temp variable to start at head	
+			Node current = head;
+	
+			//iterate until there's nothing next to current
+						while (current.getNext() != null){
 							current = current.getNext();
 						}
-			
-				current.setNext(newItem);
-			}
+		
+		//assign the next value to be the new Item.
+						current.setNext(newItem);
+
+			}//end else
+	}//end method
   	
 //   public void push(int value){
 // //make head the next thing after value--this is cleaner
@@ -59,9 +72,7 @@ public class Queue{
 	// 	return head.getData();
  //  }
 
-	public boolean isEmpty(){
-		return head == null;
-	}
+	
   // public String get(int index){
 		// Node current = head;
 		// for (int i = 0; i < index; i++){
@@ -75,9 +86,7 @@ public class Queue{
   //   return current.getData();
   // }
 
-public boolean isFull(){
-		return !isEmpty();
-	}
+
   
  // Return a string representation of the 
 
